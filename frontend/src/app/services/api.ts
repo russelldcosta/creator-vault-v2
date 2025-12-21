@@ -10,7 +10,10 @@ export class Api {
 
   constructor(private http: HttpClient) { }
 
-  testConnection(): Observable<string> {
-    return this.http.get(`${this.baseUrl}/test-db`, { responseType: 'text' });
-  }
+// frontend/src/app/services/api.ts
+testConnection(): Observable<string> {
+  return this.http.get(`${this.baseUrl}/test-db`, { 
+    responseType: 'text' // <--- DO NOT FORGET THIS
+  });
+}
 }
