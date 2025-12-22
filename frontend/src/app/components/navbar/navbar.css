@@ -1,0 +1,54 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky; /* Keeps navbar at the top when scrolling */
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-logo a {
+  text-decoration: none;
+  color: #202020;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #06c;
+}
+
+/* Call to Action Button in Nav */
+.nav-cta {
+  background: #06c;
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+  .nav-links {
+    display: none; /* Usually you'd add a hamburger menu here later */
+  }
+}

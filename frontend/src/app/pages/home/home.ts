@@ -2,11 +2,12 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router'; // Required for the 'Get Started' link
 import { Api } from '../../services/api';
+import { Navbar } from '../../components/navbar/navbar'; // Path to your new component
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterLink], // CommonModule allows @if and @for
+  imports: [CommonModule, RouterLink, Navbar], // CommonModule allows @if and @for
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+/* 1. Tell the browser where the font file is */
+@font-face {
+  font-family: 'FOT-Rodin Pro DB';
+  src: url('/fonts/FOT-Rodin Pro DB.otf') format('otf');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. Apply it to EVERYTHING */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'FOT-Rodin Pro DB', 'Inter', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 3. Make sure headings specifically use it */
+h1, h2, h3, h4, .hero-title {
+  font-family: 'FOT-Rodin Pro DB', sans-serif;
+  letter-spacing: -0.02em; /* Rodin looks best slightly tightened */
+}
