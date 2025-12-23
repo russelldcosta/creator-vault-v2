@@ -1,0 +1,35 @@
+<div class="mailer-page">
+  <section class="selector-region">
+    <app-genre-selector 
+        [initialGenre]="selectedGenre" 
+        (genreChange)="handleGenreChange($event)">
+    </app-genre-selector>
+  </section>
+
+  <main class="mailer-container">
+    <div class="mailer-workspace">
+      <div class="email-editor">
+        <label class="label">Email Template</label>
+        <textarea 
+          [(ngModel)]="mailBody" 
+          placeholder="Hi {{ '{{name}}' }}, I'm a solo dev and I'd love for you to check out my game..."
+          class="mail-textarea">
+        </textarea>
+        
+        <div class="editor-footer">
+          <span class="hint">Use {{ '{{name}}' }} to insert the creator's channel name.</span>
+          <button 
+            (click)="sendBulkEmails()" 
+            class="send-button" 
+            [disabled]="!mailBody || !selectedGenre">
+            Send Bulk Emails
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Creator Vault. All rights reserved.</p>
+  </footer>
+</div>

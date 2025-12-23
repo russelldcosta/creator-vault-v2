@@ -1,0 +1,21 @@
+<div class="hero">
+  <h1 class="hero-title">My product is best described as..</h1>
+
+  <div class="cta-wrapper">
+    <div class="search-section">
+      <div class="select-wrapper">
+        <select 
+          class="category-select" 
+          [ngModel]="initialGenre" 
+          (ngModelChange)="onSelect($event)">
+          
+          <option value="" disabled>e.g., Horror, RPG...</option>
+          @for (cat of categories; track cat) {
+            <option [value]="cat">{{ cat }}</option>
+          }
+        </select>
+        <span class="select-arrow">▼</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+.mailer-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'FOT-Rodin-Pro', sans-serif;
+}
+
+.selector-region {
+  padding-top: 60px;
+  background: #fff;
+}
+
+.mailer-container {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: flex-start; /* Keeps it near the top but centered */
+  padding: 60px 20px;
+}
+
+.mailer-workspace {
+  width: 100%;
+  max-width: 800px; /* Limits width for better readability */
+}
+
+.label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #444;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mail-textarea {
+  width: 100%;
+  height: 450px;
+  padding: 25px;
+  border: 2px solid #eef0f2;
+  border-radius: 16px;
+  font-family: inherit;
+  font-size: 16px;
+  resize: none;
+  background: #fcfdfe;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.mail-textarea:focus {
+  outline: none;
+  border-color: #007aff;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 122, 255, 0.1);
+}
+
+.editor-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.hint {
+  font-size: 13px;
+  color: #888;
+}
+
+.send-button {
+  background: #007aff;
+  color: white;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.send-button:hover:not(:disabled) {
+  background: #005bb5;
+  transform: translateY(-1px);
+}
+
+.send-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Carbon Fiber Footer */
+.footer {
+  padding: 30px 0;
+  background: repeating-linear-gradient(45deg, #161616 0, #111 1px, #111 0, #111 50%);
+  background-size: 5px 5px;
+  color: #666;
+  text-align: center;
+  font-size: 12px;
+  border-top: 1px solid #252525;
+}

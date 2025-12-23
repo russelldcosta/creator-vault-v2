@@ -1,51 +1,51 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router'; // Required for the 'Get Started' link
+import { Router } from '@angular/router'; // 1. Only need Router for navigation
 import { Api } from '../../services/api';
-import { Navbar } from '../../components/navbar/navbar'; // Path to your new component
+import { GenreSelector } from '../../components/genre-selector/genre-selector.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home', // 2. Renamed to match its purpose
   standalone: true,
-  imports: [CommonModule, RouterLink, Navbar], // CommonModule allows @if and @for
+  imports: [CommonModule, GenreSelector], // CommonModule is good practice
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
-export class App implements OnInit {
+export class Home implements OnInit { // 3. Renamed class
   // --- UI State Variables ---
-  step: number = 0;
-  category: string = "";
+  showSearch = false; 
+  categories = ['Horror', 'Open World', 'Strategy', 'RPG', 'Simulation'];
   currentYear: number = new Date().getFullYear();
-
+  
   // --- Connection State Variables ---
   connectionMessage: string = 'Connecting to Vault...';
 
   constructor(
     private api: Api, 
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router 
   ) {}
 
   ngOnInit() {
-    // Run the handshake test when the app loads
     this.api.testConnection().subscribe({
       next: (data) => {
-        console.log('Backend says:', data);
         this.connectionMessage = data;
-        this.cdr.detectChanges(); // Force UI update
+        this.cdr.detectChanges(); 
       },
       error: (err) => {
-        console.error('Connection failed:', err);
         this.connectionMessage = 'Offline';
         this.cdr.detectChanges();
       }
     });
   }
 
-  // --- UI Methods ---
-  handleCategorySubmit() {
-    if (this.category) {
-      this.step = 2;
-      this.cdr.detectChanges();
-    }
+  onGetStarted() {
+    this.showSearch = true; 
+    this.cdr.detectChanges(); // Ensure the UI swaps the button for the search bar
   }
+
+onCategorySelect(genre: string) { // It's receiving a string now!
+  console.log('Navigating with genre:', genre);
+  this.router.navigate(['/mailer'], { queryParams: { genre: genre } });
+}
 }

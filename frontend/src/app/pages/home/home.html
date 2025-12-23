@@ -1,52 +1,13 @@
-
-<app-navbar></app-navbar>
-
 <div class="homepage">
-
   <section class="hero-bg">
     <div class="radial-overlay"></div>
-    <div class="hero">
-      <h1 class="hero-title">Your Curated Repository for Bulk Emails.</h1>
-      <p class="hero-subtitle">
-        Creator Vault is a free tool built to minimize time spent on cold-mailing YouTubers for solo developers.
-      </p>
-      <a routerLink="/get-started" class="hero-button">Get Started</a>
-      <img class="hero-image" src="images/ipad.png" alt="Tool preview" />
-    </div>
+    
+    <app-genre-selector (genreChange)="onCategorySelect($event)"></app-genre-selector>
+    
+    <img class="hero-image" src="images/ipad.png" alt="Tool preview" />
   </section>
 
-  @if (step === 0) {
-    <section class="how-section">
-      <h2 class="section-title">How does it work?</h2>
-      <div class="steps-container">
-        <div class="step-card">
-          <img src="images/step-1.png" alt="Step 1" class="step-icon" />
-          <h3 class="step-title">Step 1</h3>
-          <p class="step-description">Select the genre that best describes your game</p>
-        </div>
-
-        <div class="step-divider"></div>
-
-        <div class="step-card">
-          <img src="images/step-2.png" alt="Step 2" class="step-icon" />
-          <h3 class="step-title">Step 2</h3>
-          <p class="step-description">Personalize the email with dynamic variables like <code>{{ '{{name}}' }}</code>.</p>
-        </div>
-
-        <div class="step-divider"></div>
-
-        <div class="step-card">
-          <img src="images/step-3.png" style="height: 100px" alt="Step 3" class="step-icon" />
-          <div style="margin-top: 100px;">
-            <h3 class="step-title">Step 3</h3>
-            <p class="step-description">Click "Send" to deliver your message to all recipients at once.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <p>© {{ currentYear }} Creator Vault. All rights reserved.</p>
-    </footer>
-  }
+  <footer class="footer">
+    <p>© {{ currentYear }} Creator Vault. All rights reserved.</p>
+  </footer>
 </div>

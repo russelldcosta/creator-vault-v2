@@ -1,0 +1,29 @@
+.hero { text-align: center; }
+
+.cta-wrapper { display: flex; justify-content: center; }
+
+.select-wrapper {
+  position: relative;
+  width: 350px;
+}
+
+.category-select {
+  width: 100%;
+  padding: 14px 20px;
+  font-family: 'FOT-Rodin-Pro', sans-serif;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background: #ffffff;
+  appearance: none;
+  cursor: pointer;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #aaa;
+}
