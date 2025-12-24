@@ -1,35 +1,46 @@
 <div class="mailer-page">
   <section class="selector-region">
     <app-genre-selector 
-        [initialGenre]="selectedGenre" 
-        (genreChange)="handleGenreChange($event)">
+      [initialGenre]="selectedGenre" 
+      (genreChange)="handleGenreChange($event)">
     </app-genre-selector>
   </section>
 
   <main class="mailer-container">
     <div class="mailer-workspace">
-      <div class="email-editor">
+      
+      <div class="input-group">
+        <label class="label">Subject</label>
+        <input 
+          type="text" 
+          [(ngModel)]="mailSubject" 
+          placeholder="e.g. Collaboration Proposal for {{ '{{name}}' }}"
+          class="mail-input">
+      </div>
+
+      <div class="input-group">
         <label class="label">Email Template</label>
+        <div class="hint-group">
+          <span class="hint">Use <b>{{ '{{name}}' }}</b> to insert the creator's channel name.</span>
+          <span class="hint">Keep it concise and respectful.</span>
+        </div>
+        
         <textarea 
           [(ngModel)]="mailBody" 
-          placeholder="Hi {{ '{{name}}' }}, I'm a solo dev and I'd love for you to check out my game..."
+          placeholder="Hi {{ '{{name}}' }}, I'd love for you to check out..."
           class="mail-textarea">
         </textarea>
-        
-        <div class="editor-footer">
-          <span class="hint">Use {{ '{{name}}' }} to insert the creator's channel name.</span>
-          <button 
-            (click)="sendBulkEmails()" 
-            class="send-button" 
-            [disabled]="!mailBody || !selectedGenre">
-            Send Bulk Emails
-          </button>
-        </div>
+      </div>
+
+      <div class="editor-footer">
+        <button 
+          (click)="sendBulkEmails()" 
+          class="send-button" 
+          [disabled]="!mailBody || !mailSubject || !selectedGenre">
+          Send Bulk Emails
+        </button>
       </div>
     </div>
   </main>
 
-  <footer class="footer">
-    <p>© 2025 Creator Vault. All rights reserved.</p>
-  </footer>
 </div>

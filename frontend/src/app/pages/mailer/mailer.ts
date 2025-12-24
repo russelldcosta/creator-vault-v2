@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { GenreSelector } from '../../components/genre-selector/genre-selector.component';
 
@@ -12,30 +12,52 @@ import { GenreSelector } from '../../components/genre-selector/genre-selector.co
   styleUrl: './mailer.css'
 })
 export class Mailer implements OnInit {
+  // State variables bound to the UI
   selectedGenre: string = '';
+  mailSubject: string = '';
   mailBody: string = '';
+  currentYear: number = new Date().getFullYear();
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
-    // This watches the URL. If it changes from ?genre=Horror to ?genre=RPG, 
-    // the page updates without a reload.
+  ngOnInit(): void {
+    // Listen for changes in the URL (e.g., ?genre=Strategy)
     this.route.queryParams.subscribe(params => {
       this.selectedGenre = params['genre'] || '';
+      
+      // Optional: Auto-fill subject if a genre is selected
+      if (this.selectedGenre && !this.mailSubject) {
+        this.mailSubject = `Collaboration for your ${this.selectedGenre} channel`;
+      }
     });
   }
 
-  handleGenreChange(newGenre: string) {
-    // When dropdown changes, update the URL
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: { genre: newGenre },
-      queryParamsHandling: 'merge'
-    });
+  /**
+   * Updates the state when the user picks a new genre 
+   * from the dropdown in the child component.
+   */
+  handleGenreChange(newGenre: string): void {
+    this.selectedGenre = newGenre;
+    console.log('Selected Genre updated to:', this.selectedGenre);
   }
 
-  sendBulkEmails() {
-    console.log(`Sending to ${this.selectedGenre} creators:`, this.mailBody);
-    alert('Emails queued for delivery!');
+  /**
+   * Logic to handle the "Send Bulk Emails" action.
+   * Currently logs to console; will eventually connect to your backend/API.
+   */
+  sendBulkEmails(): void {
+    if (this.mailBody && this.mailSubject && this.selectedGenre) {
+      const payload = {
+        genre: this.selectedGenre,
+        subject: this.mailSubject,
+        body: this.mailBody
+      };
+
+      console.log('Preparing to send bulk emails...', payload);
+      alert(`Preparing to send emails to the ${this.selectedGenre} vault!`);
+      
+      // Reset after send if desired
+      // this.mailBody = '';
+    }
   }
 }

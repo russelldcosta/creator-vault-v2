@@ -64,8 +64,8 @@ h1, h2, h3, h4, .hero-title {
 
 .hero-title {
   font-family: 'Times New Roman', Times, serif; /* Or 'FOT-Rodin-Pro' */
-  font-size: 35px;
-  font-weight: 500;
+  font-size: 42px;
+  font-weight: 530;
   margin-bottom: 20px;
   
   /* These two work together to bring the text in front of the overlay */

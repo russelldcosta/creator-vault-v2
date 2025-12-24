@@ -2,87 +2,46 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 60px;
-  
-  /* Micro-texture: creates a subtle diagonal weave */
-  background: 
-    repeating-linear-gradient(
-      45deg,
-      #161616 0,
-      #111111 1px,
-      #111 0,
-      #111 50%
-    );
-  background-size: 5px 5px;
-  background-color: #111;
-
-  /* Premium border details */
-  border-bottom: 1px solid #252525;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  
+  padding: 16px 60px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #f0f0f0;
   position: sticky;
   top: 0;
   z-index: 1000;
-}
-
-/* Add a subtle highlight to the top of the navbar to make it pop */
-.navbar::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-}
-
-.nav-logo a {
-  text-decoration: none;
-  color: #ffffff; /* White text for dark background */
   font-family: 'FOT-Rodin-Pro', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  transition: opacity 0.2s;
 }
 
-.nav-logo a:hover {
-  opacity: 0.8;
+/* Universal Link Style */
+.navbar a {
+  text-decoration: none;
+  color: #1a1a1a;
+  transition: opacity 0.2s ease;
 }
 
+.navbar a:hover {
+  opacity: 0.6;
+}
+
+/* Logo: Heavier weight for hierarchy */
+.nav-logo a {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Navigation Links */
 .nav-links {
   display: flex;
-  gap: 30px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  gap: 32px;
 }
 
-.nav-links li a {
-  text-decoration: none;
-  color: #bbb; /* Light grey for secondary links */
-  font-family: 'FOT-Rodin-Pro', sans-serif;
-  font-weight: 500;
-  font-size: 15px;
-  transition: all 0.3s ease;
+.nav-links a {
+  font-size: 14px;
+  font-weight: 600; /* Medium-Bold for clarity */
 }
 
-.nav-links li a:hover {
-  color: #fff; /* Bright white on hover */
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-}
-
-/* Updated Button for Dark Theme */
-.nav-cta {
-  background: #007aff; /* Bright blue pop */
-  color: white !important;
-  padding: 8px 20px;
-  border-radius: 6px;
-  font-weight: 600;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.nav-cta:hover {
-  background: #005bb5;
-  transform: translateY(-1px);
+.arrow {
+  font-size: 12px;
+  vertical-align: upper;
 }

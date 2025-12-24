@@ -1,158 +1,70 @@
-
-
-
 .homepage {
   text-align: center;
-  background: #ffffff;
-  max-width: 100%;
+  background: #fff;
   overflow-x: hidden;
 }
 
-/* Hero Section with Dotted Background */
 .hero-bg {
   position: relative;
-  padding: 60px 20px 60px;
-  max-width: 1000px;
+  padding: 60px 20px; /* More vertical space for a larger circle */
+  max-width: 1400px;    /* Wider container to let the dots spread out */
   margin: auto;
   background-image: radial-gradient(#d4d4d4 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-.hero-image {
-  display: block;       /* Allows margin: auto to work */
-  margin: 40px auto 0;  /* 40px top, auto left/right (centers it), 0 bottom */
-  max-width: 80%;       /* Prevents it from being "too big" */
-  height: auto;         /* Keeps the aspect ratio perfect */
-  border-radius: 12px;  /* Optional: makes the iPad corners look smoother */
+  background-size: 24px 24px;
 }
 
 .radial-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(255, 255, 255, 0.839);
-  mask-image: radial-gradient(ellipse at center, transparent 20%, black);
-  -webkit-mask-image: radial-gradient(ellipse at center, transparent 20%, black);
+  background-color: #fff;
+  
+  /* --- THE SIZE INCREASE --- */
+  /* Increased transparent to 30% (larger center) */
+  /* Pushed black to 95% (fade happens much further out) */
+  mask-image: radial-gradient(circle at center, transparent 30%, black 95%);
+  -webkit-mask-image: radial-gradient(circle at center, transparent 30%, black 95%);
+  
   z-index: 0;
+  pointer-events: none;
 }
 
-/* Ensure the hero text is also centered */
-.hero {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers items inside the flex container */
+.hero-image {
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin: 40px auto 0;
+  max-width: 60%;
+  height: auto;
+  
+  /* Clean crop and shield */
+  clip-path: inset(6px round 12px);
+  background-color: #fff; 
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.08));
 }
 
-.hero-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  background: #06c;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 500;
-}
-
-/* Steps Layout */
-.how-section {
-  max-width: 1200px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-
-.steps-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin-top: 40px;
-}
-
-.step-card {
-  flex: 1;
-  padding: 20px;
-  background: #fafafa;
-  border-radius: 8px;
-}
-
-.step-icon {
-  height: 200px;
-  margin-bottom: 15px;
-}
-
-.step-divider {
-  width: 1px;
-  background: #ddd;
-}
-
-
-.cta-wrapper {
-  margin-top: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
+/* Search Section */
 .search-section {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
 }
 
-.search-label {
-  font-family: 'FOT-Rodin-Pro', sans-serif;
-  font-size: 15px;
-  color: #666;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.select-wrapper {
-  position: relative;
-  width: 350px;
-}
-
 .category-select {
-  width: 100%;
+  width: 350px;
   padding: 14px 20px;
   font-family: 'FOT-Rodin-Pro', sans-serif;
   font-size: 16px;
-  border: 2px solid #e0e0e0;
+  color: #1a1a1a;
+  border: 1px solid #e0e0e0;
   border-radius: 12px;
-  background: #ffffff;
-  appearance: none; /* Removes default browser styling */
+  background: #fff;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s;
 }
 
 .category-select:hover {
-  border-color: #06c;
+  border-color: #1a1a1a;
 }
-
-.category-select:focus {
-  outline: none;
-  border-color: #06c;
-  box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15);
-}
-
-.select-arrow {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  font-size: 12px;
-  color: #aaa;
-}
-
-@media (max-width: 768px) {
-  .steps-container { flex-direction: column; }
-  .step-divider { display: none; }
-  .hero-title { font-size: 28px; }
-}
-
-
-
-
